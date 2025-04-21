@@ -2,25 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Haptic_Wrapper : MonoBehaviour
+namespace HapticInteraction
 {
-    private HapticTool tool;
-
-    void Start()
+    [RequireComponent(typeof(HapticTool))]
+    public class Haptic_Wrapper : MonoBehaviour
     {
-        tool = GetComponent<HapticTool>();
-        tool.OnFailInitialize += TryInitHaptic;
-    }
+        private HapticTool tool;
 
-    private void TryInitHaptic()
-    {
-        Debug.Log("Enter try init");
-        if (!tool.IsInitialize)
+        void Start()
         {
-            tool.ScanDevices();
-            tool.Init();
+            tool = GetComponent<HapticTool>();
+            tool.OnFailInitialize += TryInitHaptic;
         }
-        if (tool.IsInitialize) tool.OnFailInitialize -= TryInitHaptic;
-        Debug.Log($"Exit try init the value of init is: {tool.IsInitialize}");
+
+        private void TryInitHaptic()
+        {
+            Debug.Log("Enter try init");
+            if (!tool.IsInitialize)
+            {
+                tool.ScanDevices();
+                tool.Init();
+            }
+            if (tool.IsInitialize)
+            {
+                tool.OnFailInitialize -= TryInitHaptic;
+                Debug.Log($"Haptic Initialization completed -> {tool.IsInitialize}");
+            }
+        }
     }
 }
+
