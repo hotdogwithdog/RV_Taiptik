@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 
@@ -33,7 +32,6 @@ namespace AudioSystem
 
         private void Tapped(Drum drum)
         {
-            Debug.Log("Reached tapped method in AudioMapController");
             if (!_source.isPlaying) return;
 
             if (_actualBeat.drum == drum)

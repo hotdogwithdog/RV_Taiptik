@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _path: Assets/Maps/deathWinds.maprv
   _clip: {fileID: 8300000, guid: 5a40699e99074894ea08148b4d0fec71, type: 3}
-  _maxOffset: 2
+  _maxOffset: 0.5
 --- !u!82 &1452524421
 AudioSource:
   m_ObjectHideFlags: 0
