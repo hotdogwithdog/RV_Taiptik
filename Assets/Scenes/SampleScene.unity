@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 40637814}
   - component: {fileID: 40637812}
   - component: {fileID: 40637818}
+  - component: {fileID: 40637819}
   m_Layer: 0
   m_Name: Drum_05
   m_TagString: Untagged
@@ -392,6 +393,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {fileID: 1452524419}
   _forceMagnitude: 7.5
+--- !u!114 &40637819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40637811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d18554e3436844ad2201c2dce18f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drum: 6
 --- !u!1 &328067041
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +420,7 @@ GameObject:
   - component: {fileID: 328067044}
   - component: {fileID: 328067042}
   - component: {fileID: 328067048}
+  - component: {fileID: 328067049}
   m_Layer: 0
   m_Name: Drum_06
   m_TagString: Untagged
@@ -522,6 +537,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {fileID: 1452524419}
   _forceMagnitude: 7.5
+--- !u!114 &328067049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328067041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d18554e3436844ad2201c2dce18f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drum: 5
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +797,7 @@ GameObject:
   - component: {fileID: 804831946}
   - component: {fileID: 804831944}
   - component: {fileID: 804831950}
+  - component: {fileID: 804831951}
   m_Layer: 0
   m_Name: Drum_03
   m_TagString: Untagged
@@ -885,6 +914,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {fileID: 1452524419}
   _forceMagnitude: 7.5
+--- !u!114 &804831951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804831943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d18554e3436844ad2201c2dce18f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drum: 4
 --- !u!1 &808398041
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +941,7 @@ GameObject:
   - component: {fileID: 808398044}
   - component: {fileID: 808398042}
   - component: {fileID: 808398048}
+  - component: {fileID: 808398049}
   m_Layer: 0
   m_Name: Drum_02
   m_TagString: Untagged
@@ -1015,6 +1058,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {fileID: 1452524419}
   _forceMagnitude: 7.5
+--- !u!114 &808398049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808398041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d18554e3436844ad2201c2dce18f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drum: 2
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1134,7 @@ GameObject:
   - component: {fileID: 891503163}
   - component: {fileID: 891503161}
   - component: {fileID: 891503167}
+  - component: {fileID: 891503168}
   m_Layer: 0
   m_Name: Drum_04
   m_TagString: Untagged
@@ -1194,6 +1251,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {fileID: 1452524419}
   _forceMagnitude: 7.5
+--- !u!114 &891503168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891503160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d18554e3436844ad2201c2dce18f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drum: 7
 --- !u!1 &1197389563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,6 +1278,7 @@ GameObject:
   - component: {fileID: 1197389566}
   - component: {fileID: 1197389564}
   - component: {fileID: 1197389570}
+  - component: {fileID: 1197389571}
   m_Layer: 0
   m_Name: Drum_08
   m_TagString: Untagged
@@ -1324,6 +1395,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {fileID: 1452524419}
   _forceMagnitude: 7.5
+--- !u!114 &1197389571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197389563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d18554e3436844ad2201c2dce18f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drum: 0
 --- !u!1 &1448058588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,6 +1422,7 @@ GameObject:
   - component: {fileID: 1448058591}
   - component: {fileID: 1448058589}
   - component: {fileID: 1448058595}
+  - component: {fileID: 1448058596}
   m_Layer: 0
   m_Name: Drum_07
   m_TagString: Untagged
@@ -1454,6 +1539,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {fileID: 1452524419}
   _forceMagnitude: 7.5
+--- !u!114 &1448058596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448058588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d18554e3436844ad2201c2dce18f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drum: 3
 --- !u!1 &1452524418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,6 +1561,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1452524419}
+  - component: {fileID: 1452524420}
+  - component: {fileID: 1452524421}
   m_Layer: 0
   m_Name: Center
   m_TagString: Untagged
@@ -1493,6 +1593,117 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1452524420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452524418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46c1b1046db7ad46b5e778c311f2d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _path: Assets/Maps/deathWinds.maprv
+  _clip: {fileID: 8300000, guid: 5a40699e99074894ea08148b4d0fec71, type: 3}
+  _maxOffset: 2
+--- !u!82 &1452524421
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452524418}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2003627172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,6 +1749,7 @@ GameObject:
   - component: {fileID: 2117383881}
   - component: {fileID: 2117383886}
   - component: {fileID: 2117383887}
+  - component: {fileID: 2117383888}
   m_Layer: 0
   m_Name: Drum_01
   m_TagString: Untagged
@@ -1654,3 +1866,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _center: {fileID: 1452524419}
   _forceMagnitude: 7.5
+--- !u!114 &2117383888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117383880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d18554e3436844ad2201c2dce18f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drum: 1
