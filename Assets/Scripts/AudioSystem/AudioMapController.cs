@@ -19,6 +19,8 @@ namespace AudioSystem
         [SerializeField]
         private float _maxOffset;
 
+        public Action<BeatMap> OnPlay;
+
         private void Start()
         {
             _source = GetComponent<AudioSource>();
@@ -38,10 +40,9 @@ namespace AudioSystem
             {
                 if (_source.time <= _actualBeat.time + _maxOffset && _source.time >= _actualBeat.time - _maxOffset)
                 {
-                    // Generate the points
-                    Debug.Log("Tapped correctly");
-                    // Change the current Beat
-                    _actualBeat = _beatMap.GetNext();
+                    Debug.Log($"Tapped correctly: {_actualBeat.ToString()} at {_source.time}");
+                    // TODO: Generate the points
+                    _actualBeat = _beatMap.GetNextLogicBeat();
                 }
             }
         }
@@ -53,10 +54,9 @@ namespace AudioSystem
                 //Debug.Log($"Time of track: {_source.time}");
                 if (_source.time > _actualBeat.time + _maxOffset)   // enter here is that the player don't hit the beat at time
                 {
-                    // Generate fail 
+                    // TODO: Generate fail 
                     Debug.Log($"Beat do not hitted by the player: {_actualBeat.ToString()}; {_source.time}");
-                    // Change the current Beat
-                    _actualBeat = _beatMap.GetNext();
+                    _actualBeat = _beatMap.GetNextLogicBeat();
                 }
             }
 
@@ -66,11 +66,17 @@ namespace AudioSystem
             }
         }
 
+        public float GetTime()
+        {
+            return _source.time;
+        }
+
         public void Play()
         {
             if (_beatMap.LoadFile())
             {
-                _actualBeat = _beatMap.GetNext();
+                OnPlay?.Invoke(_beatMap);
+                _actualBeat = _beatMap.GetNextLogicBeat();
                 _source.clip = _clip;
                 _source.Play();
             }

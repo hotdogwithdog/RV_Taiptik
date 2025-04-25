@@ -34,16 +34,18 @@ namespace AudioSystem
     }
 
 
-    internal class BeatMap
+    public class BeatMap
     {
         private string _path;
         private List<Beat> _beats;
-        private int _iterator;
+        private int _iteratorLogic;
+        private int _iteratorVisual;
 
         internal BeatMap(string path)
         {
             _path = path;
-            _iterator = 0;
+            _iteratorLogic = 0;
+            _iteratorVisual = 0;
             _beats = new List<Beat>();
         }
 
@@ -51,7 +53,7 @@ namespace AudioSystem
         {
             StreamReader reader = new StreamReader(_path);
             _beats.Clear();
-            _iterator = 0;
+            _iteratorLogic = 0;
 
             while (!reader.EndOfStream)
             {
@@ -68,11 +70,23 @@ namespace AudioSystem
             return true;
         }
 
-        internal Beat GetNext()
+        internal Beat GetNextLogicBeat()
         {
-            if (_iterator < _beats.Count)
+            if (_iteratorLogic < _beats.Count)
             {
-                return _beats[_iterator++];
+                return _beats[_iteratorLogic++];
+            }
+            else
+            {
+                return new Beat(Drum.None, -1f);
+            }
+        }
+
+        internal Beat GetNextVisualBeat()
+        {
+            if (_iteratorVisual < _beats.Count)
+            {
+                return _beats[_iteratorVisual++];
             }
             else
             {
@@ -82,7 +96,7 @@ namespace AudioSystem
 
         internal void WriteFile(string path)
         {
-            using (StreamWriter writer = File.CreateText(path))
+            using (StreamWriter writer = File.CreateText(path + ".maprv"))
             {
                 // Start in one for avoid headers on the csv table file
                 for (int i = 1; i < _beats.Count; ++i)

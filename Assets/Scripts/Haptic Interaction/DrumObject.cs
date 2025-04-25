@@ -17,6 +17,8 @@ public class DrumObject : MonoBehaviour
         _actor.OnTouch += Tapped;
     }
 
+    public Drum GetDrum() { return _drum; }
+
     private void Tapped()
     {
         OnTap?.Invoke(_drum);
