@@ -8,6 +8,7 @@ namespace HapticInteraction
     public class ForceToOnePoint : MonoBehaviour
     {
         private HapticTool tool;
+        public Action OnTouch;
 
         private Vector3 _forceDirection;
         private Vector3 _force;
@@ -33,6 +34,7 @@ namespace HapticInteraction
                 if (other.tag == "HapticDevice")
                 {
                     UnityHaptics.SetHook(ComputeForce);
+                    OnTouch?.Invoke();
                 }
             }
         }
