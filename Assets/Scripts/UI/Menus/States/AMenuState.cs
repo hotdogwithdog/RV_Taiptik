@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace UI.Menus.States
 {
-    internal abstract class AState : IState
+    internal abstract class AMenuState : IState
     {
         private string _menuName;
         private GameObject _menu;
         private Canvas _canvas;
 
-        public AState(string menuName)
+        public AMenuState(string menuName)
         {
             _menuName = menuName;
         }

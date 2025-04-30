@@ -9,6 +9,8 @@ namespace UI.Menus
         Credits,
         MapSelector,
         Back,
-        Exit
+        Exit,
+        Restart,
+        Resume
     }
 }

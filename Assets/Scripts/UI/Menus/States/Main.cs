@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UI.Menus.States
 {
-    internal class Main : AState
+    internal class Main : AMenuState
     {
         public Main() : base("Menus/MainMenu") { }
 
@@ -14,13 +14,13 @@ namespace UI.Menus.States
             switch (option)
             {
                 case MenuButtons.MapSelector:
-                    Debug.Log("Pulsado el Map selector");
+                    MenuManager.Instance.SetState(new MapSelector());
                     break;
                 case MenuButtons.Options:
-                    Debug.Log("Pulsado el options");
+                    MenuManager.Instance.SetState(new Options(true));
                     break;
                 case MenuButtons.Credits:
-                    Debug.Log("Pulsado el credits");
+                    MenuManager.Instance.SetState(new Credits());
                     break;
                 case MenuButtons.Exit:
 #if UNITY_EDITOR
