@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HapticDevice
   - Canvas
+  - AudioController
   layers:
   - Default
   - TransparentFX

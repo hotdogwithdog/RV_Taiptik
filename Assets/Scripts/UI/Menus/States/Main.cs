@@ -17,7 +17,7 @@ namespace UI.Menus.States
                     MenuManager.Instance.SetState(new MapSelector());
                     break;
                 case MenuButtons.Options:
-                    MenuManager.Instance.SetState(new Options(true));
+                    MenuManager.Instance.SetState(new Options());
                     break;
                 case MenuButtons.Credits:
                     MenuManager.Instance.SetState(new Credits());

@@ -6,16 +6,16 @@ namespace UI.Menus.States
 {
     internal abstract class AMenuState : IState
     {
-        private string _menuName;
-        private GameObject _menu;
-        private Canvas _canvas;
+        protected string _menuName;
+        protected GameObject _menu;
+        protected Canvas _canvas;
 
         public AMenuState(string menuName)
         {
             _menuName = menuName;
         }
 
-        public void Enter()
+        public virtual void Enter()
         {
             _canvas = GameObject.FindWithTag("Canvas").GetComponent<Canvas>();
             GameObject menuPrefab = (GameObject)Resources.Load(_menuName);
@@ -26,7 +26,7 @@ namespace UI.Menus.States
 
         protected abstract void OnMenuNavigation(MenuButtons option);
 
-        public void Exit()
+        public virtual void Exit()
         {
             _menu.GetComponentInChildren<MenuOptionGroup>().onMenuNavigation -= OnMenuNavigation;
             GameObject.Destroy(_menu);

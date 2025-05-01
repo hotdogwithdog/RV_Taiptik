@@ -8,11 +8,11 @@ namespace UI.Menus.States
 {
     internal class Options : AMenuState
     {
-        private bool _goFromMain;
+        private MapSelector _mapSelector;
 
-        public Options(bool goFromMain) : base("Menus/Options") 
-        { 
-            _goFromMain = goFromMain;
+        public Options(MapSelector mapSelector = null) : base("Menus/Options") 
+        {
+            _mapSelector = mapSelector;
         }
 
         protected override void OnMenuNavigation(MenuButtons option)
@@ -31,13 +31,13 @@ namespace UI.Menus.States
 
         private void Back()
         {
-            if (_goFromMain)
+            if (_mapSelector == null)
             {
                 MenuManager.Instance.SetState(new Main());
             }
             else
             {
-                MenuManager.Instance.SetState(new Pause());
+                MenuManager.Instance.SetState(new Pause(_mapSelector));
             }
         }
 

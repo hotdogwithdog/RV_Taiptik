@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UI.Menus.Navigation;
+using UnityEngine;
 
 namespace UI.Menus.States
 {
@@ -20,7 +21,23 @@ namespace UI.Menus.States
             }
         }
 
+        public override void Enter()
+        {
+            if (_menu == null)
+            {
+                base.Enter();
+            }
+            else
+            {
+                _menu.SetActive(true);
+            }
+        }
 
+        public override void Exit()
+        {
+            _menu.GetComponentInChildren<MenuOptionGroup>().onMenuNavigation -= OnMenuNavigation;
+            _menu.SetActive(false);
+        }
 
         public override void Update(float deltaTime)
         {

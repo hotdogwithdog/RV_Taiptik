@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 8740623333342811179}
   m_Layer: 0
   m_Name: Center
-  m_TagString: Untagged
+  m_TagString: AudioController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,8 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46c1b1046db7ad46b5e778c311f2d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _path: Assets/Maps/deathWinds.maprv
-  _clip: {fileID: 8300000, guid: 5a40699e99074894ea08148b4d0fec71, type: 3}
   _maxOffset: 0.5
 --- !u!82 &8740623333342811176
 AudioSource:

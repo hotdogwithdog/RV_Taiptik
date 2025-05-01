@@ -9,12 +9,11 @@ namespace AudioSystem
     public class AudioMapController : MonoBehaviour
     {
         private BeatMap _beatMap;
-        [SerializeField]
-        private string _path;
-        private AudioSource _source;
-        [SerializeField]
         private AudioClip _clip;
+        private AudioSource _source;
         private Beat _actualBeat;
+
+        private Map _map;
 
         [SerializeField]
         private float _maxOffset;
@@ -24,7 +23,6 @@ namespace AudioSystem
         private void Start()
         {
             _source = GetComponent<AudioSource>();
-            _beatMap = new BeatMap(_path);
 
             foreach (DrumObject drum in GetComponentsInChildren<DrumObject>())
             {
@@ -71,20 +69,20 @@ namespace AudioSystem
             return _source.time;
         }
 
-        public void Play()
+        public bool LoadMap(Map map)
         {
-            if (_beatMap.LoadFile())
-            {
-                OnPlay?.Invoke(_beatMap);
-                _actualBeat = _beatMap.GetNextLogicBeat();
-                _source.clip = _clip;
-                _source.Play();
-            }
+            _map = map;
+            _beatMap = _map.GetBeatMap();
+            _clip = _map.GetAudioClip();
+            return _map.LoadMap();
         }
 
-        public void ChangePath(string newPath)
+        public void Play()
         {
-            _path = newPath;
+            OnPlay?.Invoke(_beatMap);
+            _actualBeat = _beatMap.GetNextLogicBeat();
+            _source.clip = _clip;
+            _source.Play();
         }
     }
 }
