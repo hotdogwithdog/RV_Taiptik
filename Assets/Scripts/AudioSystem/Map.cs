@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using TMPro;
+using UI.Gameplay;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -11,7 +12,7 @@ namespace AudioSystem
         private string _folderPath;
         private BeatMap _beatMap;
         private AudioClip _audioClip;
-        private UnityEngine.UI.Image _background;
+        private Texture2D _background;
         
         public string MapName { get; private set; }
 
@@ -39,10 +40,17 @@ namespace AudioSystem
                 }
                 else if (path.EndsWith(".png") || path.EndsWith(".jpg"))
                 {
-                    _background = Resources.Load<UnityEngine.UI.Image>(GetResourceString(path));
+                    _background = Resources.Load<Texture2D>(GetResourceString(path));
 
                     Debug.Log($"Loading the {path} file : {_background}");
                 }
+            }
+
+            if (_background == null)
+            {
+                _background = Resources.Load<Texture2D>("Default/defaultImage");
+
+                Debug.Log($"Loading the default image file: {_background} ");
             }
         }
         private string GetResourceString(string absolutePath)
@@ -58,7 +66,7 @@ namespace AudioSystem
         }
 
         public BeatMap GetBeatMap() {  return _beatMap; }
-        public UnityEngine.UI.Image GetBackground() { return _background; }
+        public Texture2D GetBackground() { return _background; }
         public AudioClip GetAudioClip() { return _audioClip; }
     }
 }
