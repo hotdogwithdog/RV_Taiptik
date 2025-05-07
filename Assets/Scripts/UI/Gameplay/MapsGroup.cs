@@ -18,7 +18,7 @@ namespace UI.Gameplay
         private int _mapIndex;
         private string _mapsDirectory;
         private GameObject _mapPanelPrefab;
-        private UnityEngine.UI.Image _backGround;
+        private UnityEngine.UI.RawImage _backGround;
         private AudioMapController _controller;
 
         [SerializeField]
@@ -43,7 +43,7 @@ namespace UI.Gameplay
             _maps = new List<Map>();
             _mapPanels = new List<GameObject>();
             _controller = GameObject.FindWithTag("AudioController").GetComponent<AudioMapController>();
-            Debug.Log(_controller);
+            _backGround = GameObject.FindGameObjectWithTag("BackGround").GetComponent<RawImage>();
             
             foreach (string mapFolder in Directory.GetDirectories(_mapsDirectory))
             {
@@ -63,7 +63,7 @@ namespace UI.Gameplay
             _mapIndex = Random.Range(0, _maps.Count);
             _mapPanels[_mapIndex].GetComponent<RawImage>().color = _selectedColor;
             _mapsTransform.position = new Vector3(_mapsTransform.position.x, Mathf.Clamp(_minHeight * _mapIndex, _minHeight, _maxHeight), _mapsTransform.position.z);
-            _backGround = _maps[_mapIndex].GetBackground();
+            _backGround.texture = _maps[_mapIndex].GetBackground();
             Debug.Log($"Added {_maps.Count} maps; now the index is in {_mapIndex}");
         }
 
@@ -73,6 +73,8 @@ namespace UI.Gameplay
             {
                 _mapPanels[_mapIndex].GetComponent<RawImage>().color = _unselectedColor;
                 _mapIndex = index;
+                _backGround.texture = _maps[index].GetBackground();
+                Debug.Log($"BackGround change {_backGround}");
                 _mapPanels[_mapIndex].GetComponent<RawImage>().color = _selectedColor;
             }
         }
@@ -82,7 +84,7 @@ namespace UI.Gameplay
             if (Input.mouseScrollDelta.y != 0)
             {
                 // Move the list up and down
-                MovePanels(Input.mouseScrollDelta.y * 32);
+                MovePanels(-Input.mouseScrollDelta.y * 32);
             }
             else if (Input.GetKey(KeyCode.UpArrow))
             {
