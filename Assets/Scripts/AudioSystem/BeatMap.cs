@@ -94,6 +94,12 @@ namespace AudioSystem
             }
         }
 
+        internal void Restart()
+        {
+            _iteratorLogic = 0;
+            _iteratorVisual = 0;
+        }
+
         internal void WriteFile(string path)
         {
             using (StreamWriter writer = File.CreateText(path + ".maprv"))

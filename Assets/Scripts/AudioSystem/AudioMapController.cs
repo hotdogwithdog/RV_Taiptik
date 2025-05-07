@@ -84,6 +84,30 @@ namespace AudioSystem
             _source.clip = _clip;
             _source.Play();
         }
+
+        public void Stop()
+        {
+            _source.Pause();
+        }
+
+        public void Restart()
+        {
+            _source.Stop();
+            _beatMap.Restart();
+            // Search all of the notes that are actually going to the drums and destroy its 
+            // Sinceramente no se porque este foreach no explota por infraccion de acceso probe de broma y funciono sin esperarse xd
+            foreach(GameObject note in GameObject.FindGameObjectsWithTag("Beat"))
+            {
+                GameObject.Destroy(note);
+            }
+            this.Play();
+        }
+
+        public void Resume()
+        {
+            _source.UnPause();
+            Debug.Log($"Unpause: {_source.clip}");
+        }
     }
 }
 

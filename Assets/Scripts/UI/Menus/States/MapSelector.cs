@@ -5,15 +5,16 @@ namespace UI.Menus.States
 {
     internal class MapSelector : AMenuState
     {
-        public MapSelector() : base("Menus/MapSelector") { }
+        public MapSelector() : base("Menus/MapSelector") { _isMain = false; }
 
+        private bool _isMain;
 
         protected override void OnMenuNavigation(MenuButtons option)
         {
             switch (option)
             {
                 case MenuButtons.Back:
-                    MenuManager.Instance.SetState(new Main());
+                    GoMain();
                     break;
                 default:
                     Debug.LogError($"ERROR_UNKOWN_OPTION: {option}");
@@ -30,20 +31,34 @@ namespace UI.Menus.States
             else
             {
                 _menu.SetActive(true);
+                _menu.GetComponentInChildren<MenuOptionGroup>().onMenuNavigation += OnMenuNavigation;
             }
         }
 
         public override void Exit()
         {
-            _menu.GetComponentInChildren<MenuOptionGroup>().onMenuNavigation -= OnMenuNavigation;
-            _menu.SetActive(false);
+            if (_isMain)
+            {
+                base.Exit();
+            }
+            else
+            {
+                _menu.GetComponentInChildren<MenuOptionGroup>().onMenuNavigation -= OnMenuNavigation;
+                _menu.SetActive(false);
+            }
+        }
+
+        private void GoMain()
+        { 
+            _isMain = true;
+            MenuManager.Instance.SetState(new Main());
         }
 
         public override void Update(float deltaTime)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                MenuManager.Instance.SetState(new Main());
+                GoMain();
             }
         }
     }
