@@ -32,8 +32,8 @@ namespace RenderBeats
             _drumPositions = new Vector3[N_DRUMS];
 
             foreach (DrumObject drum in GetComponentsInChildren<DrumObject>())
-            {
-                _drumPositions[(int)drum.GetDrum()] = drum.gameObject.transform.position;
+            {   
+                _drumPositions[(int)drum.GetDrum()] = drum.posToGo;
             }
         }
 

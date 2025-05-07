@@ -16,8 +16,22 @@ namespace RenderBeats
             _targetPosition = targetPosition;
             _timeToReach = timeToReach;
 
+            Orientate();
+
             _startTime = Time.time;
             StartCoroutine(Move());
+        }
+
+        private void Orientate()
+        {
+            Vector3 direction = _targetPosition - _originPosition;
+            direction.Normalize();
+            float angle = Vector3.SignedAngle(Vector3.down, direction, Vector3.forward);
+            transform.Rotate(0, 0, angle);
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            Debug.Log($"ANGLE: {angle}");
+            float height = GetComponent<MeshFilter>().mesh.bounds.size.y;
+            _targetPosition -= direction * (height / 2);
         }
 
         private IEnumerator Move()
