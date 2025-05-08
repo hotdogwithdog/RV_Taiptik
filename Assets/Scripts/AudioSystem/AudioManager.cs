@@ -8,13 +8,20 @@ namespace AudioSystem
     {
         public AudioMixer audioControl;
 
-        private float _masterVol = 1.0f;
-        private float _musicVol = 1.0f;
-        private float _SFXVol = 1.0f;
+        private float _masterVol = 0.5f;
+        private float _musicVol = 0.5f;
+        private float _SFXVol = 0.5f;
 
         public float MasterVol { get { return _masterVol; } set { _masterVol = value; } }
         public float MusicVol { get { return _musicVol; } set { _musicVol = value; } }
         public float SFXVol { get { return _SFXVol; } set { _SFXVol = value; } }
+
+        private void Start()
+        {
+            audioControl.SetFloat("Master", ConvertSliderdValue(_masterVol));
+            audioControl.SetFloat("Music", ConvertSliderdValue(_musicVol));
+            audioControl.SetFloat("SFX", ConvertSliderdValue(_SFXVol));
+        }
 
         public void SetVolume(AudioChannel channel, float value)
         {
