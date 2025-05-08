@@ -29,7 +29,6 @@ namespace RenderBeats
             float angle = Vector3.SignedAngle(Vector3.down, direction, Vector3.forward);
             transform.Rotate(0, 0, angle);
             transform.rotation = Quaternion.Euler(0, 0, angle);
-            Debug.Log($"ANGLE: {angle}");
             float height = GetComponent<MeshFilter>().mesh.bounds.size.y;
             _targetPosition -= direction * (height / 2);
         }
@@ -47,11 +46,6 @@ namespace RenderBeats
 
             // Logic after move
             Destroy(this.gameObject);
-        }
-
-        private void OnDestroy()
-        {
-            Debug.Log($"Object: {this} destroyed");
         }
     }
 }

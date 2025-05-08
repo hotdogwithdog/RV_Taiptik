@@ -13,7 +13,6 @@ namespace AudioSystem
         private BeatMap _beatMap;
         private AudioClip _audioClip;
         private Texture2D _background;
-        
         public string MapName { get; private set; }
 
         public Map(string foldePath)
@@ -68,5 +67,6 @@ namespace AudioSystem
         public BeatMap GetBeatMap() {  return _beatMap; }
         public Texture2D GetBackground() { return _background; }
         public AudioClip GetAudioClip() { return _audioClip; }
+        public  MapOptions GetOptions() { return _beatMap.GetOptions(); }
     }
 }

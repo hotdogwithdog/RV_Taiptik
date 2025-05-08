@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace AudioSystem
@@ -33,6 +34,35 @@ namespace AudioSystem
         }
     }
 
+    public struct MapOptions
+    {
+        public float maxOffset;
+        public float okeyOffset;
+        public float perfectOffset;
+        public float timeToReach;
+
+        public MapOptions(float max, float okey = 0.25f, float perfect = 0.1f, float timeToReach = 2.0f)
+        {
+            this.maxOffset = max;
+            this.okeyOffset = okey;
+            this.perfectOffset = perfect;
+            this.timeToReach = timeToReach;
+        }
+
+        public MapOptions(string max, string okey, string perfect, string timeToReach)
+        {
+            this.maxOffset = float.Parse(max);
+            this.okeyOffset = float.Parse(okey);
+            this.perfectOffset = float.Parse(perfect);
+            this.timeToReach = float.Parse(timeToReach);
+        }
+
+        public override string ToString()
+        {
+            return $"Max: {maxOffset}; Okey: {okeyOffset}; Perfect: {perfectOffset}; TimeToReach: {timeToReach}";
+        }
+    }
+
 
     public class BeatMap
     {
@@ -40,6 +70,7 @@ namespace AudioSystem
         private List<Beat> _beats;
         private int _iteratorLogic;
         private int _iteratorVisual;
+        private MapOptions _options;
 
         internal BeatMap(string path)
         {
@@ -54,6 +85,18 @@ namespace AudioSystem
             StreamReader reader = new StreamReader(_path);
             _beats.Clear();
             _iteratorLogic = 0;
+
+            if (reader.Peek() == 'o')
+            {
+                string[] options = reader.ReadLine().Split("--");
+                _options = new MapOptions(options[1], options[2], options[3], options[4]);
+                UnityEngine.Debug.Log($"Custom settings: {_options.ToString()}");
+            }
+            else
+            {
+                _options = new MapOptions(0,5f);
+                UnityEngine.Debug.Log($"Default settings: {_options.ToString()}");
+            }
 
             while (!reader.EndOfStream)
             {
@@ -93,6 +136,8 @@ namespace AudioSystem
                 return new Beat(Drum.None, -1f);
             }
         }
+
+        public MapOptions GetOptions() { return _options; }
 
         internal void Restart()
         {

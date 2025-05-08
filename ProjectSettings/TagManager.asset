@@ -9,6 +9,9 @@ TagManager:
   - AudioController
   - BackGround
   - Beat
+  - Points
+  - FinishTab
+  - FinishTabText
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,7 @@ namespace RenderBeats
             _audioMapper = GetComponent<AudioMapController>();
             InitializeDrumsPosition();
 
-            _audioMapper.OnPlay += Play;
+            _audioMapper.onPlay += Play;
         }
 
         private void InitializeDrumsPosition()
@@ -48,7 +48,6 @@ namespace RenderBeats
                     if (_actualBeat.drum == Drum.None)
                     {
                         _isPlaying = false;
-                        Debug.Log($"Beat with invalid Drum stoped the simulation: {_actualBeat.ToString()}");
                     }
                 }
             }
@@ -75,7 +74,7 @@ namespace RenderBeats
 
         private void OnDestroy()
         {
-            _audioMapper.OnPlay -= Play;
+            _audioMapper.onPlay -= Play;
         }
     }
 
