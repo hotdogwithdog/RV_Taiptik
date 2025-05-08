@@ -41,7 +41,7 @@ namespace AudioSystem
         public float perfectOffset;
         public float timeToReach;
 
-        public MapOptions(float max, float okey = 0.5f, float perfect = 0.25f, float timeToReach = 2.0f)
+        public MapOptions(float max, float okey = 0.25f, float perfect = 0.1f, float timeToReach = 2.0f)
         {
             this.maxOffset = max;
             this.okeyOffset = okey;
@@ -59,7 +59,7 @@ namespace AudioSystem
 
         public override string ToString()
         {
-            return $"Max: {maxOffset}; Okey: {okeyOffset}; Perfect: {perfectOffset}";
+            return $"Max: {maxOffset}; Okey: {okeyOffset}; Perfect: {perfectOffset}; TimeToReach: {timeToReach}";
         }
     }
 
@@ -94,7 +94,7 @@ namespace AudioSystem
             }
             else
             {
-                _options = new MapOptions(1.0f);
+                _options = new MapOptions(0,5f);
                 UnityEngine.Debug.Log($"Default settings: {_options.ToString()}");
             }
 
