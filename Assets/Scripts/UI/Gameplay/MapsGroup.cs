@@ -107,7 +107,6 @@ namespace UI.Gameplay
 
         private void MovePanels(float movement)
         {
-            Debug.Log($"position: {_mapsTransform.position}");
             float posToMove = _mapsTransform.position.y + movement;
             if (_minHeight <= posToMove && _maxHeight >= posToMove)
             {

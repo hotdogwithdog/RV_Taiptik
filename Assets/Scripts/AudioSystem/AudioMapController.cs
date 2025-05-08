@@ -13,12 +13,18 @@ namespace AudioSystem
         private AudioSource _source;
         private Beat _actualBeat;
 
+        private bool _isPlaying = false;
+
         private Map _map;
 
-        [SerializeField]
         private float _maxOffset;
 
-        public Action<BeatMap> OnPlay;
+        public Action<BeatMap> onPlay;
+        public Action onPause;
+        public Action onUnPause;
+        public Action onFinish;
+        public Action<float, float> onBeatTap;
+        public Action onBeatFail;
 
         private void Start()
         {
@@ -38,8 +44,7 @@ namespace AudioSystem
             {
                 if (_source.time <= _actualBeat.time + _maxOffset && _source.time >= _actualBeat.time - _maxOffset)
                 {
-                    Debug.Log($"Tapped correctly: {_actualBeat.ToString()} at {_source.time}");
-                    // TODO: Generate the points
+                    onBeatTap?.Invoke(_actualBeat.time, _source.time);
                     _actualBeat = _beatMap.GetNextLogicBeat();
                 }
             }
@@ -47,20 +52,20 @@ namespace AudioSystem
 
         private void Update()
         {
+            if (!_isPlaying) return;
             if (_source.isPlaying)
             {
                 //Debug.Log($"Time of track: {_source.time}");
                 if (_source.time > _actualBeat.time + _maxOffset)   // enter here is that the player don't hit the beat at time
                 {
-                    // TODO: Generate fail 
-                    Debug.Log($"Beat do not hitted by the player: {_actualBeat.ToString()}; {_source.time}");
+                    if (_actualBeat.drum != Drum.None) onBeatFail?.Invoke();
                     _actualBeat = _beatMap.GetNextLogicBeat();
                 }
             }
-
-            if (Input.GetKeyDown(KeyCode.Space))
+            else if(_source.time == 0)
             {
-                Play();
+                _isPlaying = false;
+                onFinish?.Invoke();
             }
         }
 
@@ -79,15 +84,18 @@ namespace AudioSystem
 
         public void Play()
         {
-            OnPlay?.Invoke(_beatMap);
+            _maxOffset = _beatMap.GetOptions().maxOffset;
+            onPlay?.Invoke(_beatMap);
             _actualBeat = _beatMap.GetNextLogicBeat();
             _source.clip = _clip;
             _source.Play();
+            _isPlaying = true;
         }
 
         public void Stop()
         {
             _source.Pause();
+            onPause?.Invoke();
         }
 
         public void Restart()
@@ -106,7 +114,7 @@ namespace AudioSystem
         public void Resume()
         {
             _source.UnPause();
-            Debug.Log($"Unpause: {_source.clip}");
+            onUnPause?.Invoke();
         }
     }
 }
