@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 4978092127314188993}
   - component: {fileID: 4978092127314188992}
   - component: {fileID: 4978092127314189007}
+  - component: {fileID: 4529034481860449147}
   m_Layer: 0
   m_Name: Center
   m_TagString: AudioController
@@ -563,7 +564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46c1b1046db7ad46b5e778c311f2d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxOffset: 0.5
 --- !u!82 &4978092127314188992
 AudioSource:
   m_ObjectHideFlags: 0
@@ -573,7 +573,8 @@ AudioSource:
   m_GameObject: {fileID: 4978092127314189006}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 553777330456184146, guid: 9651bf73a4c8aa1459c985ff53563d7c,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -673,6 +674,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeToReach: 2
+--- !u!114 &4529034481860449147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978092127314189006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb1c04e80a547e46a64b42e34f9d217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _perfectPoints: 300
+  _okeyPoints: 200
+  _badPoints: 100
 --- !u!1 &4978092127553366513
 GameObject:
   m_ObjectHideFlags: 0
