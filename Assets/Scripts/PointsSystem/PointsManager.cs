@@ -67,10 +67,10 @@ namespace PointsSystem
             Debug.Log("FINISH CALLBACK");
             StringBuilder values = new StringBuilder();
             int maxNotes = _count.GetTotalHits() + _count.misseds;
-            values.AppendLine($"Notes hited: {_count.GetTotalHits()}; Total notes: {maxNotes}");
-            values.AppendLine($"Point obteined: {_points}; Max Points: {maxNotes * 300}");
-            values.AppendLine($"Perfects: {_count.perfects}; Goods: {_count.okeys}");
-            values.AppendLine($"Bads: {_count.bads}; Fails: {_count.misseds}");
+            values.AppendLine($"Notes hited: {_count.GetTotalHits()}     Total notes: {maxNotes}");
+            values.AppendLine($"Point obteined: {_points}     Max Points: {maxNotes * 300}");
+            values.AppendLine($"Perfects: {_count.perfects}     Goods: {_count.okeys}");
+            values.AppendLine($"Bads: {_count.bads}     Fails: {_count.misseds}");
 
             MenuManager.Instance.SetState(new FinishTab(values.ToString()));
         }
