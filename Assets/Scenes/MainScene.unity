@@ -412,7 +412,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -769,6 +769,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404213145581354860, guid: 87e05857f4dd1654a93e347124f8536c,
+        type: 3}
+      propertyPath: WorkspaceSize
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 5404213145581354861, guid: 87e05857f4dd1654a93e347124f8536c,
         type: 3}
